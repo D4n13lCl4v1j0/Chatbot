@@ -3,40 +3,37 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DoReBot - Tu asistente musical</title>
+  <title>DoReBot – Tu asistente de sintetizadores</title>
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-900 text-white font-sans min-h-screen flex flex-col items-center justify-center px-4">
+<body class="bg-gradient-to-br from-gray-900 to-gray-800 text-white h-screen flex items-center justify-center relative">
 
-  <header class="mb-10 text-center">
-    <h1 class="text-4xl md:text-5xl font-bold text-red-400 mb-4">🎹 DoReBot</h1>
-    <p class="text-lg md:text-xl text-gray-300">Tu asistente inteligente para sintetizadores <span class="text-red-300">Nord</span> y <span class="text-blue-300">Yamaha</span>.</p>
-  </header>
+  <!-- Fondo decorativo -->
+  <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1511376777868-611b54f68947?auto=format&fit=crop&w=1950&q=80')] bg-cover opacity-20 z-0"></div>
 
-  <main class="text-center mb-20">
-    <p class="text-lg text-gray-400">¿Buscas un sinte para empezar, mejorar o llevar al escenario?  
-    ¡Habla con DoReBot y encuentra el ideal para ti!</p>
+  <!-- Capa oscura -->
+  <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+
+  <!-- Contenido central -->
+  <main class="relative z-20 text-center max-w-xl px-4">
+    <h1 class="text-4xl font-bold mb-4">🎹 Bienvenido a DoReBot</h1>
+    <p class="text-lg mb-6">Tu guía virtual para encontrar el sintetizador Yamaha o Nord perfecto según tu nivel, estilo y presupuesto.</p>
+    <p class="mb-2">Haz clic en el ícono de chat para comenzar 👉</p>
   </main>
 
-  <!-- Chatbot container -->
-  <div id="watson-assistant" class="w-full max-w-md h-[500px] mx-auto shadow-lg rounded-2xl overflow-hidden border border-gray-700 bg-gray-800">
-    <!-- Aquí IBM insertará el widget del chatbot -->
-  </div>
-
-  <!-- Watson Assistant Script (REEMPLAZA este bloque con el que te da IBM) -->
-<script>
-  window.watsonAssistantChatOptions = {
-    integrationID: "135c708f-5d33-4def-836f-b70ba6ddd123", // The ID of this integration.
-    region: "us-south", // The region your integration is hosted in.
-    serviceInstanceID: "6e5ea02d-bf07-4e66-8b62-4589b83aabb9", // The ID of your service instance.
-    onLoad: async (instance) => { await instance.render(); }
-  };
-  setTimeout(function(){
-    const t=document.createElement('script');
-    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
-    document.head.appendChild(t);
-  });
-</script>
-
+  <!-- Watson Assistant embed -->
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "135c708f-5d33-4def-836f-b70ba6ddd123",
+      region: "us-south",
+      serviceInstanceID: "6e5ea02d-bf07-4e66-8b62-4589b83aabb9",
+      onLoad: async (instance) => { await instance.render(); }
+    };
+    setTimeout(function(){
+      const t = document.createElement('script');
+      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
 </body>
 </html>
