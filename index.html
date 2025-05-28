@@ -24,19 +24,19 @@
   </div>
 
   <!-- Watson Assistant Script (REEMPLAZA este bloque con el que te da IBM) -->
-  <script>
-    window.watsonAssistantChatOptions = {
-        integrationID: "TU-INTEGRATION-ID", // Reemplaza con tu ID
-        region: "us-south", // o tu región
-        serviceInstanceID: "TU-SERVICE-ID", // Reemplaza con tu ID
-        onLoad: function(instance) { instance.render(); }
-    };
-    setTimeout(function(){
-      const t = document.createElement('script');
-      t.src = "https://web-chat.global.assistant.watson.appdomain.cloud/versions/latest/WatsonAssistantChatEntry.js";
-      document.head.appendChild(t);
-    });
-  </script>
+<script>
+  window.watsonAssistantChatOptions = {
+    integrationID: "135c708f-5d33-4def-836f-b70ba6ddd123", // The ID of this integration.
+    region: "us-south", // The region your integration is hosted in.
+    serviceInstanceID: "6e5ea02d-bf07-4e66-8b62-4589b83aabb9", // The ID of your service instance.
+    onLoad: async (instance) => { await instance.render(); }
+  };
+  setTimeout(function(){
+    const t=document.createElement('script');
+    t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+    document.head.appendChild(t);
+  });
+</script>
 
 </body>
 </html>
